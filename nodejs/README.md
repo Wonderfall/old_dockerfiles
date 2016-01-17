@@ -1,0 +1,68 @@
+## wonderfall/node
+**SIZE : ±38MB**
+
+![](https://i.goopics.net/lq.png)
+
+#### Tags
+- Stable (5.4.1) : `latest`, `stable`, `5.4` 
+- LTS (4.2.4) : `lts`, `4.2`
+
+#### Onbuild
+Need an onbuild dockerfile ? `xataz/node` suits your needs.
+
+#### Sources
+https://github.com/Wonderfall/dockerfiles/tree/master/nodejs
+
+#### Dockerfile
+```
+FROM alpine:3.3
+MAINTAINER Wonderfall <wonderfall@mondedie.fr>
+
+ENV NODE_VER=5.4.1 NPM_VER=3
+
+RUN apk -U add \
+    git \
+    make \
+    gcc \
+    g++ \
+    python \
+    linux-headers \
+    paxctl \
+    libgcc \
+    libstdc++ \
+    grep \
+    binutils-gold \
+    ca-certificates \
+ && NB_CORES=`grep -c "processor" /proc/cpuinfo` \
+ && cd /tmp \
+ && wget -qO- https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER.tar.gz | tar zxf - \
+ && cd node-v$NODE_VER \
+ && ./configure --prefix=/usr \
+ && make -j$NB_CORES && make install \
+ && paxctl -cm /usr/bin/node \
+ && npm install -g npm@$NPM_VER \
+ && find /usr/lib/node_modules/npm -name test -o -name .bin -type d \
+ | xargs rm -rf \
+ && apk del \
+    git \
+    make \
+    gcc \
+    g++ \
+    python \
+    linux-headers \
+    paxctl \
+    grep \
+    binutils-gold \
+    ca-certificates \
+ && rm -rf \
+    /tmp/* \
+    /var/cache/apk/* \
+    /root/.npm \
+    /root/.node-gyp \
+    /usr/lib/node_modules/npm/man \
+    /usr/lib/node_modules/npm/doc \
+    /usr/lib/node_modules/npm/html \
+    /usr/share/man
+
+CMD ["node", "-v"]
+```
