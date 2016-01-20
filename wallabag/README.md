@@ -13,7 +13,7 @@ wallabag is a self hostable application for saving web pages. Unlike other servi
 #### Notes
 **#1 :** As php-tidy is not available in Alpine Linux (and not enabled in alpine's php package), deal with it. Most of the time, everything should work fine.  
 
-**#2 :** `BASE_URL` must be set in your `config.inc.php` file (shoud be your `http(s)://sub.domain.tld`) if you're using a reverse proxy. 
+**#2 :** `BASE_URL` must be set in your `config.inc.php` file (shoud be your `http(s)://sub.domain.tld`) if you're using a reverse proxy. This can be automated with the `BASE_URL` environment variable.
 
 **#3 :** `/config/config.inc.php` overwrites the one used by wallabag each time the container is started. Restart to apply new settings.
 
@@ -24,6 +24,7 @@ wallabag:
   links:
     - db_wallabag:db_wallabag
   environment:
+    - BASE_URL=http://sub.domain.tld
     - GID=1000
     - UID=1000
   volumes:
