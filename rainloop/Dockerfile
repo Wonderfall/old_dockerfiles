@@ -15,6 +15,7 @@ RUN apk -U add \
     php-zlib \
     php-pdo_mysql \
     php-pdo_sqlite \
+    php-sqlite3 \
     supervisor \
  && rm -f /var/cache/apk/*
 
