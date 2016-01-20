@@ -4,6 +4,7 @@ addgroup -g ${GID} wallabag && adduser -h /wallabag -s /bin/sh -D -G wallabag -u
 if [ -f /wallabag/inc/poche/config.inc.php ] && [ ! -f /config/config.inc.php ]; then
   cp /wallabag/inc/poche/config.inc.php /config/config.inc.php
 elif [ -f /config/config.inc.php ]; then
+  sed -i "s|'BASE_URL', ''|'BASE_URL', '$BASE_URL'|g" /config/config.inc.php
   mv /wallabag/inc/poche/config.inc.php /config/config.inc.php.bkp
   cp /config/config.inc.php /wallabag/inc/poche/config.inc.php
 fi
