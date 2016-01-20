@@ -17,6 +17,8 @@ Why the hell should we download an entire Ubuntu system when we can do something
 - **reverse** : nginx statically linked against LibreSSL. *(not automated)*
 - **searx** : a metasearch engine.
 - **subsonic** : a web-based media server with transcoding abilities.
+- **piwik** : a free (as freedom) and open-source web analytics application.
+- **wallabag** : a free read-it-later app, alternative to Pocket.
 
 *Not automated means there's no automation on Docker Hub. I build on my own server then I push. If you're not confident with this, please build yourself!*
 
