@@ -18,6 +18,7 @@ RUN apk -U add \
  && make -j $NB_CORES\
  && make install \
  && apk del \
+    grep \
     build-base \
     cmake \
     zlib-dev \
