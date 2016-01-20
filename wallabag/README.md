@@ -11,7 +11,9 @@ wallabag is a self hostable application for saving web pages. Unlike other servi
 - Configuration persistance through updates
 
 #### Notes
-As php-tidy is not available in Alpine Linux (and not enabled in alpine's php package), deal with it. Most of the time, everything should work fine.
+As php-tidy is not available in Alpine Linux (and not enabled in alpine's php package), deal with it. Most of the time, everything should work fine. 
+
+`BASE_URL` must be set in your `config.inc.php` file (shoud be your `http(s)://sub.domain.tld`) if you're using a reverse proxy.
 
 #### Docker Compose (example)
 ```
