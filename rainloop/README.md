@@ -3,7 +3,7 @@
 ![](https://i.goopics.net/nI.png)
 
 #### What is this?
-Rainloop is SIMPLE, MODERN & FAST WEB-BASED EMAIL CLIENT. More info at the [official website](http://www.rainloop.net/).
+Rainloop is a SIMPLE, MODERN & FAST WEB-BASED EMAIL CLIENT. More info on the [official website](http://www.rainloop.net/).
 
 #### Features
 - Based on Alpine 3.3
