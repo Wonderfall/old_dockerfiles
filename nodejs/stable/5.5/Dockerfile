@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NODE_VER=4.2.5 NPM_VER=3
+ENV NODE_VER=5.5.0 NPM_VER=3
 
 RUN apk -U add \
     git \
@@ -13,8 +13,8 @@ RUN apk -U add \
     paxctl \
     libgcc \
     libstdc++ \
-    binutils-gold \
     grep \
+    binutils-gold \
     ca-certificates \
  && NB_CORES=`grep -c "processor" /proc/cpuinfo` \
  && cd /tmp \
@@ -24,7 +24,8 @@ RUN apk -U add \
  && make -j$NB_CORES && make install \
  && paxctl -cm /usr/bin/node \
  && npm install -g npm@$NPM_VER \
- && find /usr/lib/node_modules/npm -name test -o -name .bin -type d | xargs rm -rf \
+ && find /usr/lib/node_modules/npm -name test -o -name .bin -type d \
+ | xargs rm -rf \
  && apk del \
     git \
     make \
@@ -33,8 +34,8 @@ RUN apk -U add \
     python \
     linux-headers \
     paxctl \
-    binutils-gold \
     grep \
+    binutils-gold \
     ca-certificates \
  && rm -rf \
     /tmp/* \
