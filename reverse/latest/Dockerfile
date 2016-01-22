@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NGINX_VER=1.9.9
+ENV NGINX_VER=1.9.9 LIBRESSL_VER=2.3.1
 
 RUN adduser -D -H -s /bin/sh nginx nginx
 
@@ -21,9 +21,9 @@ RUN apk -U add \
     zlib-dev \
  && NB_CORES=`grep -c "processor" /proc/cpuinfo` \
  && mkdir /tmp/libressl && cd /tmp/libressl \
- && wget -qO- https://github.com/libressl-portable/portable/archive/master.tar.gz \
+ && wget -qO- http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$LIBRESSL_VER.tar.gz \
  | tar xz --strip 1 \
- && ./autogen.sh && ./configure LDFLAGS=-lrt --prefix=/tmp/libressl/.openssl/ \
+ && ./configure LDFLAGS=-lrt --prefix=/tmp/libressl/.openssl/ \
  && make install-strip -j$NB_CORES \
  && mkdir /tmp/nginx && cd /tmp/nginx \
  && wget -qO- http://nginx.org/download/nginx-$NGINX_VER.tar.gz | tar zxf - \
