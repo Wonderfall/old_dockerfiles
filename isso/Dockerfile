@@ -13,6 +13,7 @@ RUN apk -U add \
     ca-certificates \
     build-base \
  && pip install --no-cache cffi \
+ && pip install --no-cache misaka==1.0.2 \
  && pip install --no-cache isso \
  && ln -s /opt/isso/bin/isso /usr/local/bin/isso \
  && apk del \
