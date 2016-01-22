@@ -16,7 +16,7 @@ You may prefer `stable` for production.
 - Based on Alpine Linux (3.3).
 - **Latest :** nginx mainline (1.9.9) + LibreSSL snapshot (2.3.1)
 - **Stable :** nginx stable (1.8.0) + LibreSSL stable (2.2.5)
-- **Stable :** HTTP/2 support.
+- **Latest :** HTTP/2 support.
 - AIO Threads support.
 - No unnessary modules.
 - Optimized nginx configuration.
