@@ -10,6 +10,7 @@ RUN apk -U add \
     py-setuptools \
     py-pip \
     sqlite \
+    ca-certificates \
     build-base \
  && pip install --no-cache cffi \
  && pip install --no-cache isso \
