@@ -25,7 +25,7 @@ WORKDIR /wallabag
 
 RUN wget -qO- https://github.com/wallabag/wallabag/archive/$VERSION.tar.gz | tar xz --strip 1 \
  && wget -q http://wllbg.org/vendor && mv vendor vendor.zip \
- && unzip -q vendor.zip && rm vendor.zip \
+ && unzip -q vendor.zip && rm vendor.zip
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY php-fpm.conf /etc/php/php-fpm.conf
