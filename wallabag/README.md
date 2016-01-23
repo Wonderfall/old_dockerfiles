@@ -10,6 +10,10 @@ wallabag is a self hostable application for saving web pages. Unlike other servi
 - Compatible with MySQL (server not built-in)
 - Configuration persistance through updates
 
+#### Tags
+- `latest`, `1.x` : 1.x branch, which is stable (recommended).
+- `2.x` : 2.x branch, which is unstable.
+
 #### Notes
 **#1 :** As php-tidy is not available in Alpine Linux (and not enabled in alpine's php package), deal with it. Most of the time, everything should work fine.  
 
