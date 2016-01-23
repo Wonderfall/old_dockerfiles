@@ -17,14 +17,15 @@ RUN apk -U add \
     php-ctype \
     php-json \
     supervisor \
+    tar \
+    ca-certificates \
  && rm -f /var/cache/apk/*
 
-RUN wget -q http://wllbg.org/latest -P /tmp \
- && wget -q http://wllbg.org/vendor -P /tmp \
- && unzip -q /tmp/latest \
- && mv wallabag-$VER wallabag \
- && unzip -q /tmp/vendor -d /wallabag \
- && rm -f /tmp/*
+WORKDIR /wallabag
+
+RUN wget -qO- https://github.com/wallabag/wallabag/archive/$VERSION.tar.gz | tar xz --strip 1 \
+ && wget -q http://wllbg.org/vendor && mv vendor vendor.zip \
+ && unzip -q vendor.zip && rm vendor.zip \
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY php-fpm.conf /etc/php/php-fpm.conf
