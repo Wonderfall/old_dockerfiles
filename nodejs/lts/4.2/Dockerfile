@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NODE_VER=4.2.5 NPM_VER=3
+ENV NODE_VER=4.2.6 NPM_VER=3
 
 RUN apk -U add \
     git \
