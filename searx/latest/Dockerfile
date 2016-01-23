@@ -21,7 +21,7 @@ RUN apk -U add \
  && apk del \
     build-base \
     python-dev \
-    py-pip\
+    py-pip \
     libffi-dev \
     openssl-dev \
     libxslt-dev \
