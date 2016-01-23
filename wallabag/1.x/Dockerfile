@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV VER=1.9.1-b BASE_URL=http://sub.domain.tld GID=1000 UID=1000
+ENV VERSION=1.9.1-b BASE_URL=http://sub.domain.tld GID=1000 UID=1000
 
 RUN apk -U add \
     nginx \
