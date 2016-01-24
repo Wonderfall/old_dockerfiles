@@ -1,5 +1,6 @@
 ## wonderfall/deluge
 [![](https://badge.imagelayers.io/wonderfall/deluge:latest.svg)](https://imagelayers.io/?images=wonderfall/deluge:latest 'Get your own badge on imagelayers.io') *vanilla*
+
 [![](https://badge.imagelayers.io/wonderfall/deluge:filebot.svg)](https://imagelayers.io/?images=wonderfall/deluge:filebot 'Get your own badge on imagelayers.io') *filebot*
 
 ![](https://i.goopics.net/pS.png)
