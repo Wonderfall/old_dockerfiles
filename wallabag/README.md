@@ -1,4 +1,6 @@
 ## wonderfall/wallabag
+[![](https://badge.imagelayers.io/wonderfall/wallabag:latest.svg)](https://imagelayers.io/?images=wonderfall/wallabag:latest 'Get your own badge on imagelayers.io')
+
 ![](https://www.wallabag.org/images/logo.png)
 
 #### What is wallabag?
