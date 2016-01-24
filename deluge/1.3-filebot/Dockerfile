@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV BRANCH=1.3-stable FB_VER=4.6.1 UID=1000 GID=1000
+ENV BRANCH=1.3-stable WEBROOT=/ FB_VER=4.6.1 UID=1000 GID=1000
 
 RUN mkdir -p /opt/filebot \
  && wget http://downloads.sourceforge.net/project/filebot/filebot/FileBot_$FB_VER/FileBot_$FB_VER-portable.zip -P /tmp \

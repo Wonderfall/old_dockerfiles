@@ -12,6 +12,8 @@ else
   chown -R torrent:torrent /config
 fi
 
+sed -i "s|\"base\": \"/\"|\"base\": \"$WEBROOT\"|g" /config/web.conf
+
 mkdir -p /data/.torrents
 mkdir -p /data/torrents/.in_progress
 mkdir -p /data/watch

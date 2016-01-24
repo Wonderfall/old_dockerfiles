@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV BRANCH=1.3-stable UID=1000 GID=1000
+ENV BRANCH=1.3-stable WEBROOT=/ UID=1000 GID=1000
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
  && echo "@3.2 http://nl.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories \
