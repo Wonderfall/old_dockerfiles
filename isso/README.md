@@ -1,11 +1,11 @@
 ## wonderfall/isso
 [![](https://badge.imagelayers.io/wonderfall/isso:latest.svg)](https://imagelayers.io/?images=wonderfall/isso:latest 'Get your own badge on imagelayers.io')
 
-![](https://i.goopics.net/pq.png)
+![](https://i.goopics.net/q1.png)
 
 
 #### What is this?
-Isso is a ~~Pokémon~~ commenting server similar to Disqus. More info on the [official website](https://posativ.org/isso/).
+Isso is a commenting server similar to Disqus. More info on the [official website](https://posativ.org/isso/).
 
 #### Features
 - Based on Alpine Linux 3.3.
@@ -16,8 +16,9 @@ Isso is a ~~Pokémon~~ commenting server similar to Disqus. More info on the [of
 - **UID** : isso user id.
 
 #### Example of simple configuration
+Here is the full documentation ; https://posativ.org/isso/docs/
 ```
-# /mnt/docker/isso.conf
+# /mnt/docker/isso/config/isso.conf
 [general]
 dbpath = /db/comments.db
 host = https://cats.schrodinger.io/
