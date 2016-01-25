@@ -16,7 +16,7 @@ Isso is a commenting server similar to Disqus. More info on the [official websit
 - **UID** : isso user id.
 
 #### Example of simple configuration
-Here is the full documentation ; https://posativ.org/isso/docs/
+Here is the full documentation : https://posativ.org/isso/docs/
 ```
 # /mnt/docker/isso/config/isso.conf
 [general]
