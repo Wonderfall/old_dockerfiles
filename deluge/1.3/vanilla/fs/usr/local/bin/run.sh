@@ -1,5 +1,5 @@
 #!/bin/sh
-addgroup -g ${GID} deluge && adduser -H -s /bin/sh -D -G deluge -u ${UID} deluge
+addgroup -g ${GID} deluge && adduser -h /home/deluge -s /bin/sh -D -G deluge -u ${UID} deluge
 
 if [ -e /config/core.conf ]
 then
@@ -18,6 +18,7 @@ mkdir -p /data/.torrents
 mkdir -p /data/torrents/.in_progress
 mkdir -p /data/watch
 mkdir -p /data/media
+mkdir -p /home/deluge/.python-eggs
 
 chown -R deluge:deluge /data
 
