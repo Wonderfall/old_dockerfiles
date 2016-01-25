@@ -22,6 +22,10 @@
 
 If you want some security, versioning with tags should be available since 8.2 (e.g. the next tags will be 8.3, 8.4, etc. major updates as you can notice). I do not make tags for minor updates, like 8.2.1, 8.2.2, 8.2.x, since it's only bugfixes and security patches, which are strongly recommended.
 
+#### Environment variables
+- **USERID** : owncloud user id.
+- **GROUPID** : owncloud group id.
+
 #### About the database
 You have to use an external database container, thus allowing better security and less complexity. I suggest you to use MySQL/MariaDB, a reliable database server. For instance, you can use the official `mariadb` build, which is very easy to run and of course available on Docker Hub. I decided not to use sqlite since it's not recommended by ownCloud (sqlite is supected to cause some troubles with sync clients).
 

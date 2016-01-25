@@ -7,13 +7,17 @@
 Cowrie is a medium interaction SSH honeypot designed to log brute force attacks and the shell interaction performed by the attacker. Cowrie is based on Kippo.
 
 #### Environment variables
-`$HOSTNAME` is the hostname displayed in the honeypot. `$DL_LIMIT` is the maximum size (in bytes!) of a stored downloaded file (0 = no limit). `$FACING_IP` is your IP (you have to set it manually because cowrie fails to detect it when running in Docker). `$JSON_LOG` equals False by default, so json logging is disabled. If you want this feature enabled, set `$JSON_LOG` to True (or anything else...).
+- **HOSTNAME** is the hostname displayed in the honeypot. 
+- **DL_LIMIT** is the maximum size (in bytes!) of a stored downloaded file (0 = no limit). 
+- **FACING_IP** is your IP (you have to set it manually because cowrie fails to detect it when running in Docker). 
+- **JSON_LOG** equals False by default, so json logging is disabled. If you want this feature enabled, set `$JSON_LOG` to True (or anything else...).
 
+#### Custom mode
 `$CUSTOM` can be interpreted as a custom mode. You have access, if set to True, to :
-- honeyfs dir : file contents for the fake filesystem, feel free to copy a real system here
-- data dir : fake filesystem + users database
-- txtcmds dir : modify, or add new text commands (if new, must be added to the fake fs)
-- utils dir : useful for fake fs creation
+- **honeyfs dir** : file contents for the fake filesystem, feel free to copy a real system here
+- **data dir** : fake filesystem + users database
+- **txtcmds dir** : modify, or add new text commands (if new, must be added to the fake fs)
+- **utils dir** : useful for fake fs creation
 
 You have to know that, once these directories are polluted by the run.sh script, nothing will be done for you. You'll have to update manually (except utils) and things may break in the future. Always backup your changes. If you just want to run the honeypot without any customisation, do not enable this mode.
 

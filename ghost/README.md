@@ -12,6 +12,12 @@
 #### Tags
 - Latest, 0.7.x : `latest`, `0.7`
 
+#### Environment variables
+- **SSL** : set to *True* if you use https on your blog.
+- **DOMAIN** : your domain without http(s)://
+- **GID** : ghost user id.
+- **UID** : ghost group id.
+
 #### Where's my config file?
 You shouldn't modify the config file. Use environment variables such as `DOMAIN` (your domain without http://) and `SSL` (True or False). Ghost is already listening to 0.0.0.0, using sqlite3 and running in production mode.
 

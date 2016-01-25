@@ -15,7 +15,8 @@ It provides basic privacy by mixing your queries with searches on other platform
 When the container starts the first time, it generates a new secret key. It doesn't depend on the build, so no one can know your key. 
 
 #### Environment variables
-`IMAGE_PROXY` is a boolean value (True or False, False by default), it can enable proxying through the searx instance (useful for public instances because it doesn't break TLS connection). `$BASE_URL` should be used if searx is behind a domain name (http address or False, False by default).
+- **IMAGE_PROXY** is a boolean value (True or False, False by default), it can enable proxying through the searx instance (useful for public instances because it doesn't break TLS connection). 
+- **BASE_URL** should be set if searx is used behind a custom domain name (http address or False, False by default).
 
 #### Docker Compose (example)
 ```

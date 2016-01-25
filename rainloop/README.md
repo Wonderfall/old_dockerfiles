@@ -12,6 +12,10 @@ Rainloop is a SIMPLE, MODERN & FAST WEB-BASED EMAIL CLIENT. More info on the [of
 - Extremely lightweight
 - Contacts (DB) : sqlite, or mysql (server not built-in)
 
+#### Environment variables
+- **GID** : rainloop group id.
+- **UID** : rainloop user id.
+
 #### Docker Compose (example)
 ```
 rainloop:

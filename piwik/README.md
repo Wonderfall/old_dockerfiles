@@ -14,6 +14,10 @@ It is a web analytics platform. Piwik respects your privacy and gives you full c
 - Latest GeoLite City Database from maxmind.com.
 - External + automatic backup of configuration.
 
+#### Environment variables
+- **GID** : piwik group id.
+- **UID** : piwik user id.
+
 #### Configuration
 According to Piwik, everything should be fine running this image. You shoudn't have any difficulties to setup your own instance of Piwik. Your `/config/config.ini.php` overwrites the one (in `/piwik/config`)used by Piwik each time the container is started. Moreover, the old config.ini.php is saved as `/config/config.ini.php.bkp` if you want to revert last changes. This should also guarantee transparency through Piwik's updates.
 
