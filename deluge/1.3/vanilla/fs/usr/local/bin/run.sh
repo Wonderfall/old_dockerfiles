@@ -20,6 +20,6 @@ mkdir -p /data/watch
 mkdir -p /data/media
 mkdir -p /home/deluge/.python-eggs
 
-chown -R deluge:deluge /data
+chown -R deluge:deluge /data /home/deluge
 
 supervisord -c /etc/supervisor/supervisord.conf
