@@ -5,7 +5,7 @@ if [ -e /config/core.conf ]
 then
   mkdir -p /config/state
   chown -R deluge:deluge /config
-  echo"Config OK"
+  echo "Config OK"
 else
   cp /config-bkp/* /config/
   mkdir -p /config/state
