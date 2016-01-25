@@ -12,6 +12,12 @@ Deluge is a blazing fast and open-source BitTorrent client. It has an embedded W
 - Vanilla : `latest`, `1.3`
 - With Filebot : `filebot`, `1.3-filebot`
 
+#### Environment variables
+- **WEBROOT** : explicit.
+- **UID** : cowrie user id.
+- **GID** : cowrie group id.
+- **FB_LINK** *(filebot)* : symlink or hardlink.
+
 #### Examples
 ```
 # docker-compose.yml
