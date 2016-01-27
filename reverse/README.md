@@ -7,15 +7,15 @@
 Basically, it's just nginx statically linked against LibreSSL. Both are compiled from source.
 
 #### Tags
-- Latest nginx 1.9.9 + LibreSSL 2.3.1 : `latest`
-- Stable nginx 1.8.1 + LibreSSL 2.2.5 : `stable`
+- Latest nginx **1.9.10** + LibreSSL **2.3.1** : `latest`
+- Stable nginx **1.8.1** + LibreSSL **2.2.5** : `stable`
 
 You may prefer `stable` for production.
 
 #### Features
 - Based on Alpine Linux (3.3).
-- **Latest :** nginx mainline (1.9.9) + LibreSSL snapshot (2.3.1)
-- **Stable :** nginx stable (1.8.0) + LibreSSL stable (2.2.5)
+- **Latest :** nginx mainline + LibreSSL snapshot
+- **Stable :** nginx stable + LibreSSL stable
 - **Latest :** HTTP/2 support.
 - AIO Threads support.
 - No unnessary modules.
