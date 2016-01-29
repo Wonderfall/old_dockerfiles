@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.1
+ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2
 
 RUN adduser -D -H -s /bin/sh nginx nginx
 
