@@ -7,8 +7,8 @@
 Basically, it's just nginx statically linked against LibreSSL. Both are compiled from source.
 
 #### Tags
-- Latest nginx **1.9.10** + LibreSSL **2.3.1** : `latest`
-- Stable nginx **1.8.1** + LibreSSL **2.2.5** : `stable`
+- Latest nginx **1.9.10** + LibreSSL **2.3.2** : `latest`
+- Stable nginx **1.8.1** + LibreSSL **2.2.6** : `stable`
 
 You may prefer `stable` for production.
 
