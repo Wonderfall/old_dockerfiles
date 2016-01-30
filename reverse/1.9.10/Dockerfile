@@ -33,6 +33,7 @@ RUN apk -U add \
                 --with-http_gzip_static_module \
                 --with-http_stub_status_module \
                 --with-openssl=/tmp/libressl \
+                --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
                 --with-ld-opt="-lrt" \
                 --with-file-aio \
                 --with-threads \
