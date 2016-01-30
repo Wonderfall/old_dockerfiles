@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
     ca-certificates \
     libssl-dev \
     shared-mime-info \
- && cpan install -y Carton \
+ && cpan install Carton \
  && mkdir /lutim && cd /lutim \
  && wget -qO- https://github.com/ldidry/lutim/archive/master.tar.gz | tar xz --strip 1 \
  && carton install \
