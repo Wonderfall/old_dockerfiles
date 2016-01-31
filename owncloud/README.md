@@ -26,6 +26,11 @@ If you want some security, versioning with tags should be available since 8.2 (e
 - **USERID** : owncloud user id.
 - **GROUPID** : owncloud group id.
 
+#### Volumes
+- **/data** : owncloud data (e.g. your files)
+- **/config** : configuration files
+- **/apps2** : owncloud downloaded apps
+
 #### About the database
 You have to use an external database container, thus allowing better security and less complexity. I suggest you to use MySQL/MariaDB, a reliable database server. For instance, you can use the official `mariadb` build, which is very easy to run and of course available on Docker Hub. I decided not to use sqlite since it's not recommended by ownCloud (sqlite is supected to cause some troubles with sync clients).
 

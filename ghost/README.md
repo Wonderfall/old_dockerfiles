@@ -18,6 +18,9 @@
 - **GID** : ghost user id.
 - **UID** : ghost group id.
 
+#### Volumes
+- **/ghost/content** : contents of your blog, including themes.
+
 #### Where's my config file?
 You shouldn't modify the config file. Use environment variables such as `DOMAIN` (your domain without http://) and `SSL` (True or False). Ghost is already listening to 0.0.0.0, using sqlite3 and running in production mode.
 

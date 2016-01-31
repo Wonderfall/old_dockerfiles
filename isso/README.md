@@ -15,6 +15,10 @@ Isso is a commenting server similar to Disqus. More info on the [official websit
 - **GID** : isso group id.
 - **UID** : isso user id.
 
+#### Volumes
+- **/config** : configuration files.
+- **/db** : location of SQLite database.
+
 #### Example of simple configuration
 Here is the full documentation : https://posativ.org/isso/docs/
 ```

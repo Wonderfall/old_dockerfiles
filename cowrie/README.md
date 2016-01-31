@@ -12,12 +12,16 @@ Cowrie is a medium interaction SSH honeypot designed to log brute force attacks 
 - **FACING_IP** is your IP (you have to set it manually because cowrie fails to detect it when running in Docker). 
 - **JSON_LOG** equals False by default, so json logging is disabled. If you want this feature enabled, set `$JSON_LOG` to True (or anything else...).
 
+#### Volumes
+- **/dl** : where downloads are stored.
+- **/log** : cowrie and tty sessions logs.
+
 #### Custom mode
 `$CUSTOM` can be interpreted as a custom mode. You have access, if set to True, to :
-- **honeyfs dir** : file contents for the fake filesystem, feel free to copy a real system here
-- **data dir** : fake filesystem + users database
-- **txtcmds dir** : modify, or add new text commands (if new, must be added to the fake fs)
-- **utils dir** : useful for fake fs creation
+- **honeyfs dir** (/honeyfs) : file contents for the fake filesystem, feel free to copy a real system here
+- **data dir** (/data) : fake filesystem + users database
+- **txtcmds dir** (/txtcmds) : modify, or add new text commands (if new, must be added to the fake fs)
+- **utils dir** (/utils) : useful for fake fs creation
 
 You have to know that, once these directories are polluted by the run.sh script, nothing will be done for you. You'll have to update manually (except utils) and things may break in the future. Always backup your changes. If you just want to run the honeypot without any customisation, do not enable this mode.
 

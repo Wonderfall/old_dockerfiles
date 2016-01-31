@@ -21,6 +21,12 @@ You may prefer `stable` for production.
 - No unnessary modules.
 - Optimized nginx configuration.
 
+#### Volumes
+- **/sites-enabled** : should contain your vhosts files (.conf)
+- **/conf.d** : additional configuration files if you want
+- **/certs** : SLL/TLS certificates
+- **/var/log/nginx** : nginx logs (access and error)
+
 #### Source (Dockerfile)
 https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 

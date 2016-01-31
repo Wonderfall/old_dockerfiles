@@ -10,6 +10,11 @@ Subsonic is an open-source web-based media streamer and jukebox. Supports MP3, O
 - **GID** : subsonic group id.
 - **UID** : subsonic user id.
 
+#### Volumes
+- **/musics** : your music files
+- **/data** : subsonic data
+- **/playlists** : subsonic playlists
+
 #### Known issues (only with alpine) :
 - Can't retrieve pictures through TLS (although it's not automatic, you have to choose clear-HTTP sources only when picking a cover picture) -> **fixed !**
 - "Default covers" (when no cover image is detected) are not generated (not sure it's a problem since I find this feature useless... such ugly fonts/colors)

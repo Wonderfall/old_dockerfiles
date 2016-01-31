@@ -21,6 +21,9 @@ wallabag is a self hostable application for saving web pages. Unlike other servi
 - **GID** : wallabag group id.
 - **UID** : wallabag user id.
 
+#### Volumes
+- */config* : configuration fiels
+
 #### Notes
 **#1 :** As php-tidy is not available in Alpine Linux (and not enabled in alpine's php package), deal with it. Most of the time, everything should work fine.  
 
