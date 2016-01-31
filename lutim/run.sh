@@ -10,4 +10,5 @@ sed -i -e 's/<contact>/'$CONTACT'/g' \
 mv /lutim/lutim.conf /config/lutim.conf.bkp
 cp /config/lutim.conf /lutim/lutim.conf
 chown -R lutim:lutim /lutim /data /config
+cd /lutim
 su lutim -c "carton exec hypnotoad -f /lutim/script/lutim"
