@@ -10,10 +10,14 @@ Images are indefinitly stored unless you request that they will be deleted at fi
 #### Environment variables
 - **GROUPID** : lutim group id.
 - **USERID** : lutim user id.
+- **SECRET** : random string used to encrypt cookies.
 - **CONTACT** : lutim contact.
 - **MAX_FILE_SIZE** : maximum file size of an uploaded file.
 - **WEBROOT** : webroot of lutim.
 - **HTTPS** : deprecated, can force HTTPS if set to 1.
+
+*Tip : you can use the following command to generate SECRET.*
+`cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 20 | head -n 1`
 
 #### Volumes
 - **/data** : where lutim's database is stored.
@@ -26,6 +30,7 @@ lutim:
   environment:
     - GROUPID=1000
     - USERID=1000
+    - SECRET=ZyCnLAhYKBIJrukuKZZJ
     - CONTACT=user@domain.tld
     - MAX_FILE_SIZE=100000000
     - WEBROOT=/
