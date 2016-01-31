@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
  && mkdir /lutim && cd /lutim \
  && wget -qO- https://github.com/ldidry/lutim/archive/master.tar.gz | tar xz --strip 1 \
  && carton install \
- && mv lutim.conf.template lutim.conf \
  && apt-get purge -y \
     wget \
     make \
@@ -25,10 +24,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
  && rm -rf /var/lib/apt/lists/*
 
 COPY run.sh /usr/local/bin/run.sh
-COPY lutim.conf /config/lutim.conf
+COPY lutim.conf /lutim/lutim.conf
 
 RUN chmod +x /usr/local/bin/run.sh
 
 EXPOSE 8181
-VOLUME /config /data /lutim/files
+VOLUME /data /lutim/files
 CMD ["run.sh"]
