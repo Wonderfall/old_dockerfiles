@@ -1,4 +1,5 @@
 ## wonderfall/piwik
+[![](https://badge.imagelayers.io/wonderfall/analytics:latest.svg)](https://imagelayers.io/?images=wonderfall/analytics:latest 'Get your own badge on imagelayers.io')
 
 ![](https://i.goopics.net/m3.png)
 
