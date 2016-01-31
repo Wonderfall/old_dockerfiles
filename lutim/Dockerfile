@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV USERID=1000 GROUPID=1000 CONTACT=john.doe@domain.tld MAX_FILE_SIZE=10000000000 WEBROOT=/
+ENV USERID=1000 GROUPID=1000 CONTACT=john.doe@domain.tld MAX_FILE_SIZE=100000000 WEBROOT=/ HTTPS=0
 
 RUN apt-get update && apt-get install -y --no-install-recommends --no-install-suggests \
     wget \
