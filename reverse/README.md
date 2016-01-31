@@ -57,13 +57,17 @@ server {
   ssl_certificate /certs/live/service.domain.tld/fullchain.pem;
   ssl_certificate_key /certs/live/service.domain.tld/privkey.pem;
   include /conf.d/ssl_params.conf;
+  include /conf.d/headers.conf;
+  #client_max_body_size 10M; #(M = Megabytes / G = Gigabytes)
 
   location / {
       proxy_pass http://container_n:$PORT;
-      proxy_set_header        X-Real-IP       $remote_addr;
-      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header        X-Forwarded-Proto $remote_addr;
-      proxy_set_header        X-Forwarded-Protocol $scheme;
+      proxy_set_header        Host                 $host;
+      proxy_set_header        X-Real-IP            $remote_addr;
+      proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Remote-Port        $remote_port;
+      proxy_set_header        X-Forwarded-Proto    $scheme;
+      proxy_redirect          off;
   }
 }
 ```
@@ -78,7 +82,10 @@ ssl_ecdh_curve secp384r1;
 ssl_session_cache shared:SSL:10m;
 ssl_session_timeout 10m;
 ssl_session_tickets off;
+```
 
+```
+# /mnt/docker/conf/headers.conf
 add_header Strict-Transport-Security "max-age=31536000";
 add_header X-Frame-Options SAMEORIGIN;
 add_header X-Content-Type-Options nosniff;
