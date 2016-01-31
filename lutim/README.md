@@ -14,7 +14,7 @@ Images are indefinitly stored unless you request that they will be deleted at fi
 - **USERID** : lutim user id.
 - **SECRET** : random string used to encrypt cookies.
 - **CONTACT** : lutim contact.
-- **MAX_FILE_SIZE** : maximum file size of an uploaded file.
+- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes.
 - **WEBROOT** : webroot of lutim.
 - **HTTPS** : deprecated, can force HTTPS if set to 1.
 
