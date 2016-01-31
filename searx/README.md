@@ -26,3 +26,6 @@ searx:
     - BASE_URL="https://searx.domain.tld"
     - IMAGE_PROXY=True
 ```
+
+#### Reverse proxy
+https://github.com/Wonderfall/dockerfiles/tree/master/reverse

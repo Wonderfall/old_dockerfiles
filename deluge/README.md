@@ -34,15 +34,14 @@ deluge:
     - WEBROOT=/
     - UID=1000
     - GID=1000
-
+```
+```
 # reverse proxy with nginx
+# https://github.com/Wonderfall/dockerfiles/tree/master/reverse
+# X-Deluge-Base must be set if you're using a custom webroot
 location WEBROOT {
         proxy_pass              http://deluge:8112/;
         proxy_set_header        X-Deluge-Base "WEBROOT/";
-        proxy_set_header        X-Real-IP       $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header        X-Forwarded-Proto $remote_addr;
-        proxy_set_header        X-Forwarded-Protocol $scheme;
-        proxy_redirect          off;
+        ...
 }
 ```

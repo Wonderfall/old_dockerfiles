@@ -41,21 +41,6 @@ lutim:
     - /mnt/docker/lutim/data:/data
     - /mnt/docker/lutim/files:/lutim/files
 ```
-```
-# REVERSE PROXY
-  location / {
-      try_files $uri @lutim;
-  }
 
-  location @lutim {
-      proxy_pass http://lutim:8181;
-      proxy_set_header        Host                 $host;
-      proxy_set_header        X-Real-IP            $remote_addr;
-      proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
-      proxy_set_header        X-Forwarded-Proto    $remote_addr;
-      proxy_set_header        X-Remote-Port        $remote_port;
-      proxy_set_header        X-Forwarded-Protocol $scheme;
-      proxy_redirect          off;
-  }
-}
-```
+#### Reverse proxy
+https://github.com/Wonderfall/dockerfiles/tree/master/reverse

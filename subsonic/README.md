@@ -31,3 +31,17 @@ subsonic:
     - GID=1000
     - UID=1000
 ```
+
+#### Reverse proxy
+https://github.com/Wonderfall/dockerfiles/tree/master/reverse
+Fully working configuration with TLS :
+
+```
+  location / {
+      proxy_pass http://subsonic:4040;
+      proxy_set_header        X-Real-IP            $remote_addr;
+      proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Remote-Port        $remote_port;
+      proxy_set_header        X-Forwarded-Proto    $scheme;
+  }
+```
