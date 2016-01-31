@@ -20,7 +20,7 @@ Is that all? No. All the files are encrypted by the browser! It means that your 
 `cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 20 | head -n 1`
 
 #### Volumes
-- **/data** : where lutim's database is stored.
+- **/data** : where lufi's database is stored.
 - **/files** : location of uploaded files.
 
 #### Docker-compose (example)
@@ -31,13 +31,13 @@ lufi:
     - GID=1000
     - UID=1000
     - SECRET=alpha
-    - CONTACT=wonderfall@schrodinger.io
+    - CONTACT=john.doe@domain.tld
     - WEBROOT=/
     - MAX_FILE_SIZE=1000000000
     - DOMAIN=up.schrodinger.io
   volumes:
-    - /lufi/files:/files
-    - /lufi/data:/data
+    - /mnt/lufi/files:/files
+    - /mnt/lufi/data:/data
 ```
 
 #### Reverse proxy
