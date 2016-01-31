@@ -17,9 +17,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
  && wget -qO- https://github.com/ldidry/lutim/archive/master.tar.gz | tar xz --strip 1 \
  && carton install \
  && apt-get purge -y \
+    tar \
     wget \
     make \
     gcc \
+    ca-certificates \
  && apt-get autoremove --purge -y && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
