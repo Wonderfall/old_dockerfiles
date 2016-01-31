@@ -21,6 +21,8 @@ Why the hell should we download an entire Ubuntu system when we can do something
 - **wallabag** : a free read-it-later app, alternative to Pocket.
 - **rainloop** : a simple, modern and fast webmail client.
 - **isso** : a commenting server, alternative to Disqus.
+- **lutim** : an image hosting service.
+- **lufi** : a file hosting service.
 
 *Not automated means there's no automation on Docker Hub. I build on my own server then I push. If you're not confident with this, please build yourself!*
 
