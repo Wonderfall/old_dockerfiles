@@ -30,5 +30,5 @@ COPY lutim.conf /config/lutim.conf
 RUN chmod +x /usr/local/bin/run.sh
 
 EXPOSE 8181
-VOLUME /config /data
+VOLUME /config /data /lutim/files
 CMD ["run.sh"]
