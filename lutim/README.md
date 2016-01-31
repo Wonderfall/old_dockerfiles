@@ -28,7 +28,7 @@ Images are indefinitly stored unless you request that they will be deleted at fi
 #### Docker compose (example)
 ```
 lutim:
-  image: wonder/lutim
+  image: wonderfall/lutim
   environment:
     - GROUPID=1000
     - USERID=1000
