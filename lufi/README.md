@@ -12,7 +12,7 @@ Is that all? No. All the files are encrypted by the browser! It means that your 
 - **USERID** : lufi user id. *(default : 1000)*
 - **SECRET** : random string used to encrypt cookies. *(default : ZyCnLAhYKBIJrukuKZZJ)*
 - **CONTACT** : lufi contact. *(default : contact@domain.tld)*
-- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes. *(default : 1000000000 bytes = 1GB)*
+- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes. *(default : 1GB)*
 - **WEBROOT** : webroot of lufi. *(default : /)*
 - **DOMAIN** : domain used with lufi. *(default : domain.tld)*
 
