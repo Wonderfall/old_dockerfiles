@@ -9,6 +9,7 @@ Basically, it's just nginx statically linked against LibreSSL. Both are compiled
 #### Tags
 - Latest nginx **1.9.10** + LibreSSL **2.3.2** : `latest`
 - Stable nginx **1.8.1** + LibreSSL **2.2.6** : `stable`
+- latest + brotli (testing) : `brotli`
 
 You may prefer `stable` for production.
 
@@ -24,7 +25,7 @@ You may prefer `stable` for production.
 #### Volumes
 - **/sites-enabled** : should contain your vhosts files (.conf)
 - **/conf.d** : additional configuration files if you want
-- **/certs** : SLL/TLS certificates
+- **/certs** : SSL/TLS certificates
 - **/var/log/nginx** : nginx logs (access and error)
 
 #### Source (Dockerfile)
