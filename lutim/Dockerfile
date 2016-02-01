@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
     wget \
     make \
     gcc \
+    libssl-dev \
     ca-certificates \
  && apt-get autoremove --purge -y && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /root/.cpan* /lutim/local/cache/* /lutim/utilities
