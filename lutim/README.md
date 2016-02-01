@@ -10,13 +10,12 @@ It stores images and allows you to see them, download them or share them on soci
 Images are indefinitly stored unless you request that they will be deleted at first view or after 24 hours / one week / one month / one year.
 
 #### Environment variables
-- **GROUPID** : lutim group id.
-- **USERID** : lutim user id.
-- **SECRET** : random string used to encrypt cookies.
-- **CONTACT** : lutim contact.
-- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes.
-- **WEBROOT** : webroot of lutim.
-- **HTTPS** : deprecated, can force HTTPS if set to 1.
+- **GROUPID** : lutim group id. *(default : 1000)*
+- **USERID** : lutim user id. *(default : 1000)*
+- **SECRET** : random string used to encrypt cookies. *(default : ZyCnLAhYKBIJrukuKZZJ)*
+- **CONTACT** : lutim contact. *(default : contact@domain.tld)*
+- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes. *(default : 1000000000 bytes = 1GB)*
+- **WEBROOT** : webroot of lutim. *(default : /)*
 
 *Tip : you can use the following command to generate SECRET.*
 `cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 20 | head -n 1`
@@ -24,6 +23,9 @@ Images are indefinitly stored unless you request that they will be deleted at fi
 #### Volumes
 - **/data** : where lutim's database is stored.
 - **/lutim/files** : location of uploaded files.
+
+#### Reverse proxy
+https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 
 #### Docker compose (example)
 ```
@@ -41,6 +43,3 @@ lutim:
     - /mnt/docker/lutim/data:/data
     - /mnt/docker/lutim/files:/lutim/files
 ```
-
-#### Reverse proxy
-https://github.com/Wonderfall/dockerfiles/tree/master/reverse
