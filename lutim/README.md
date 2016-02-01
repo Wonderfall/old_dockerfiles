@@ -39,7 +39,7 @@ lutim:
     - CONTACT=user@domain.tld
     - MAX_FILE_SIZE=100000000
     - WEBROOT=/
-    - HTTPS=1
+    - DOMAIN=domain.tld
   volumes:
     - /mnt/docker/lutim/data:/data
     - /mnt/docker/lutim/files:/lutim/files
