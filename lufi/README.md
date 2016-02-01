@@ -37,7 +37,7 @@ lufi:
     - CONTACT=john.doe@domain.tld
     - WEBROOT=/
     - MAX_FILE_SIZE=1000000000
-    - DOMAIN=up.schrodinger.io
+    - DOMAIN=domain.tld
   volumes:
     - /mnt/lufi/files:/files
     - /mnt/lufi/data:/data
