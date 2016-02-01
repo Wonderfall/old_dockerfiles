@@ -26,7 +26,7 @@ Is that all? No. All the files are encrypted by the browser! It means that your 
 #### Docker-compose (example)
 ```
 lufi:
-  image: wonder/lufi
+  image: wonderfall/lufi
   environment:
     - GID=1000
     - UID=1000
