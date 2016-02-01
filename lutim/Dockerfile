@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
     gcc \
     ca-certificates \
  && apt-get autoremove --purge -y && apt-get clean \
- && rm -rf /var/lib/apt/lists/* /root/.cpan*
+ && rm -rf /var/lib/apt/lists/* /root/.cpan* /lutim/local/cache/* /lutim/utilities
 
 COPY run.sh /usr/local/bin/run.sh
 COPY lutim.conf /lutim/lutim.conf

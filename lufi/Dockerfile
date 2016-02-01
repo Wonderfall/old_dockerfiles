@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
     build-essential \
     ca-certificates \
  && apt-get autoremove --purge -y && apt-get clean \
- && rm -rf /var/lib/apt/lists/* /root/.cpan*
+ && rm -rf /var/lib/apt/lists/* /root/.cpan* /lufi/local/cache/* /lufi/utilities
 
 COPY run.sh /usr/local/bin/run.sh
 COPY lufi.conf /lufi/lufi.conf
