@@ -14,8 +14,9 @@ Images are indefinitly stored unless you request that they will be deleted at fi
 - **USERID** : lutim user id. *(default : 1000)*
 - **SECRET** : random string used to encrypt cookies. *(default : ZyCnLAhYKBIJrukuKZZJ)*
 - **CONTACT** : lutim contact. *(default : contact@domain.tld)*
-- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes. *(default : 1000000000 bytes = 1GB)*
+- **MAX_FILE_SIZE** : maximum file size of an uploaded file in bytes. *(default : 1GB)*
 - **WEBROOT** : webroot of lutim. *(default : /)*
+- **DOMAIN** : your domain used with lutim *(default : domain.tld)*
 
 *Tip : you can use the following command to generate SECRET.*
 `cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 20 | head -n 1`
