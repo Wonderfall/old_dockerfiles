@@ -31,8 +31,8 @@ https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 lufi:
   image: wonderfall/lufi
   environment:
-    - GID=1000
-    - UID=1000
+    - GROUPID=1000
+    - USERID=1000
     - SECRET=EFDLZGzfvzvbpdghZZopg
     - CONTACT=john.doe@domain.tld
     - WEBROOT=/
