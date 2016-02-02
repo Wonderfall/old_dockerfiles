@@ -1,9 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2
-
-RUN adduser -D -H -s /bin/sh nginx nginx
+ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2 GID=1000 UID=1000
 
 RUN apk -U add \
     build-base \
@@ -26,10 +24,8 @@ RUN apk -U add \
  && ./autogen.sh && ./configure && make -j$NB_CORES && make install \
  && mkdir /tmp/ngx_brotli && cd /tmp/ngx_brotli \
  && wget -qO- https://github.com/google/ngx_brotli/archive/master.tar.gz | tar xz --strip 1 \
- # && export NGX_BROTLI_STATIC_MODULE_ONLY=1 \
  && mkdir /tmp/libressl && cd /tmp/libressl \
- && wget -qO- http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$LIBRESSL_VER.tar.gz \
- | tar xz --strip 1 \
+ && wget -qO- http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$LIBRESSL_VER.tar.gz | tar xz --strip 1 \
  && ./configure LDFLAGS=-lrt --prefix=/tmp/libressl/.openssl/ \
  && make install-strip -j$NB_CORES \
  && mkdir /tmp/nginx && cd /tmp/nginx \
@@ -70,7 +66,10 @@ RUN apk -U add \
  && rm -rf /tmp/* /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/conf/nginx.conf
+COPY run.sh /usr/local/bin/run.sh
+
+RUN chmod +x /usr/local/bin/run.sh
 
 EXPOSE 80 443
 VOLUME /sites-enabled /conf.d /certs /var/log/nginx
-CMD ["nginx"]
+CMD ["run.sh"]

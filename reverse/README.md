@@ -9,7 +9,7 @@ Basically, it's just nginx statically linked against LibreSSL. Both are compiled
 #### Tags
 - Latest nginx **1.9.10** + LibreSSL **2.3.2** : `latest`
 - Stable nginx **1.8.1** + LibreSSL **2.2.6** : `stable`
-- latest + brotli (testing) : `brotli`
+- Nginx 1.9.10 + LibreSSL 2.3.2 + ngx_brotli **(testing)** : `brotli`
 
 You may prefer `stable` for production.
 
@@ -18,6 +18,7 @@ You may prefer `stable` for production.
 - **Latest :** nginx mainline + LibreSSL snapshot
 - **Stable :** nginx stable + LibreSSL stable
 - **Latest :** HTTP/2 support.
+- **Brotli :** Brotli compression support.
 - AIO Threads support.
 - No unnessary modules.
 - Optimized nginx configuration.
@@ -27,6 +28,10 @@ You may prefer `stable` for production.
 - **/conf.d** : additional configuration files if you want
 - **/certs** : SSL/TLS certificates
 - **/var/log/nginx** : nginx logs (access and error)
+
+#### Environment variables
+- **GID** : nginx group id *(default : 1000)*
+- **UID** : nginx user id *(default : 1000)*
 
 #### Source (Dockerfile)
 https://github.com/Wonderfall/dockerfiles/tree/master/reverse
@@ -43,6 +48,9 @@ nginx:
     - container_1:container_1
     - container_2:container_2
     - container_n:container_n
+  environment:
+    - GID=1000
+    - UID=1000
   volumes:
     - /mnt/docker/nginx/sites:/sites-enabled
     - /mnt/docker/nginx/conf:/conf.d

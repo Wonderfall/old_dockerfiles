@@ -1,9 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NGINX_VER=1.8.1 LIBRESSL_VER=2.2.6
-
-RUN adduser -D -H -s /bin/sh nginx nginx
+ENV NGINX_VER=1.8.1 LIBRESSL_VER=2.2.6 GID=1000 UID=1000
 
 RUN apk -U add \
     build-base \
@@ -61,7 +59,10 @@ RUN apk -U add \
  && rm -rf /tmp/* /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/conf/nginx.conf
+COPY run.sh /usr/local/bin/run.sh
+
+RUN chmod +x /usr/local/bin/run.sh
 
 EXPOSE 80 443
 VOLUME /sites-enabled /conf.d /certs /var/log/nginx
-CMD ["nginx"]
+CMD ["run.sh"]
