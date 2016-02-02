@@ -95,7 +95,7 @@ ssl_prefer_server_ciphers on;
 ssl_ecdh_curve secp384r1;
 
 ssl_session_cache shared:SSL:10m;
-ssl_session_timeout 10m;
+ssl_session_timeout 5m;
 ssl_session_tickets off;
 ```
 
@@ -104,4 +104,5 @@ ssl_session_tickets off;
 add_header Strict-Transport-Security "max-age=31536000";
 add_header X-Frame-Options SAMEORIGIN;
 add_header X-Content-Type-Options nosniff;
+add_header X-XSS-Protection "1; mode=block";
 ```
