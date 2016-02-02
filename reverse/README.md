@@ -1,5 +1,6 @@
 ## wonderfall/reverse
-**SIZE : ±19MB**
+**VANILLA SIZE : ±19MB**
+**BROTLI SIZE : ±37MB**
 
 ![](https://i.goopics.net/lv.jpg) ![](https://i.goopics.net/lL.png) ![](https://upload.wikimedia.org/wikipedia/en/2/25/LibreSSL_logo.jpg)
 
