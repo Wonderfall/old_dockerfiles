@@ -22,6 +22,9 @@ It is a web analytics platform. Piwik respects your privacy and gives you full c
 #### Volumes
 - **/config** : configuration files
 
+#### Update
+Piwik can update itself. It works well. I'm also maintaing this Dockerfile, so if you don't want to do upgrades directly from Piwik, you can recreate the container as well whenever I push an update.
+
 #### Configuration
 According to Piwik, everything should be fine running this image. You shoudn't have any difficulties to setup your own instance of Piwik. Your `/config/config.ini.php` overwrites the one (in `/piwik/config`)used by Piwik each time the container is started. Moreover, the old config.ini.php is saved as `/config/config.ini.php.bkp` if you want to revert last changes. This should also guarantee transparency through Piwik's updates.
 
@@ -33,7 +36,9 @@ proxy_client_headers[] = HTTP_X_FORWARDED_FOR
 proxy_client_headers[] = HTTP_X_REAL_IP
 proxy_host_headers[] = HTTP_X_FORWARDED_HOST
 ```
-See wonderfall/reverse for more informations about how making a vhost proxy.
+
+#### Reverse proxy
+https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 
 #### Docker Compose (example)
 ```
@@ -58,5 +63,4 @@ db_piwik:
     - MYSQL_PASSWORD=asupersecretpassword
 ```
 
-#### Reverse proxy
-https://github.com/Wonderfall/dockerfiles/tree/master/reverse
+
