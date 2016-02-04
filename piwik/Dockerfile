@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV VER=2.15.0 GID=1000 UID=1000
+ENV VER=2.16.0 GID=1000 UID=1000
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
  && apk -U add \
