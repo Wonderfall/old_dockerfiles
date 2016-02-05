@@ -7,8 +7,8 @@
 Subsonic is an open-source web-based media streamer and jukebox. Supports MP3, OGG, AAC and other streamable audio and video formats. Indeed, this build comes with **transcoding abilities**.
 
 #### Tags
-- Stable 5.x : `5.3`, `latest`, `old-5.3`
-- Beta 6.0 : `6.0b1`, `6`
+- **Stable 5.x** : `5.3`, `latest`, `old-5.3`
+- **Beta 6.0** : `6.0b1`, `6`
 
 #### Environment variables
 - **GID** : subsonic group id.
