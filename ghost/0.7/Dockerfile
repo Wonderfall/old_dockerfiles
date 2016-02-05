@@ -1,7 +1,7 @@
 FROM wonderfall/node:4.2
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV VERSION=0.7.5 DOMAIN=my-ghost-blog.com SSL=False GID=1000 UID=1000
+ENV VERSION=0.7.6 DOMAIN=my-ghost-blog.com SSL=False GID=1000 UID=1000
 VOLUME /ghost/content
 
 RUN apk -U add ca-certificates bash grep \
