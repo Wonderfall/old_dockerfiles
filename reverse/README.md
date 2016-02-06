@@ -1,6 +1,6 @@
 ## wonderfall/reverse
 **VANILLA SIZE : ±19MB**
-**BROTLI SIZE : ±37MB**
+**BROTLI/NEXT SIZE : ±37MB**
 
 ![](https://i.goopics.net/lv.jpg) ![](https://i.goopics.net/lL.png) ![](https://upload.wikimedia.org/wikipedia/en/2/25/LibreSSL_logo.jpg)
 
@@ -10,7 +10,8 @@ Basically, it's just nginx statically linked against LibreSSL. Both are compiled
 #### Tags
 - Latest nginx **1.9.10** + LibreSSL **2.3.2** : `latest`
 - Stable nginx **1.8.1** + LibreSSL **2.2.6** : `stable`
-- Nginx 1.9.10 + LibreSSL 2.3.2 + ngx_brotli **(testing)** : `brotli`
+- Nginx 1.9.10 + LibreSSL 2.3.2 + ngx_brotli  : `brotli`
+- Nginx 1.9.10 + LibreSSL 2.3.2 + ngx_brotli +  no root : `next`
 
 You may prefer `stable` for production.
 
@@ -20,9 +21,15 @@ You may prefer `stable` for production.
 - **Stable :** nginx stable + LibreSSL stable
 - **Latest :** HTTP/2 support.
 - **Brotli :** Brotli compression support.
+- **Next :** No root master process. Better security.
 - AIO Threads support.
 - No unnessary modules.
 - Optimized nginx configuration.
+
+#### Notes about Next
+With `next`, it is required to :
+- chown your certs files with the right uid/pid (no other way)
+- change `listen` directive to 8000/44300 instead of 80/443
 
 #### Volumes
 - **/sites-enabled** : should contain your vhosts files (.conf)
