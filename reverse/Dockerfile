@@ -1,10 +1,9 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2 GID=1000 UID=1000
+ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2 GID=991 UID=991
 
-RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
- && apk -U add \
+RUN apk -U add \
     build-base \
     linux-headers \
     ca-certificates \
@@ -20,7 +19,6 @@ RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
     zlib-dev \
     libgcc \
     libstdc++ \
-    gosu@testing \
  && NB_CORES=`grep -c "processor" /proc/cpuinfo` \
  && cd /tmp && git clone https://github.com/bagder/libbrotli && cd libbrotli \
  && ./autogen.sh && ./configure && make -j$NB_CORES && make install \
@@ -68,10 +66,12 @@ RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
  && rm -rf /tmp/* /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/conf/nginx.conf
-COPY run.sh /usr/local/bin/run.sh
 
-RUN chmod +x /usr/local/bin/run.sh
+RUN addgroup -g $GID nginx && adduser -H -s /bin/sh -D -G nginx -u $UID nginx \
+ && touch /var/run/nginx.pid \
+ && chown -R nginx:nginx /etc/nginx /var/log/nginx /var/run/nginx.pid
 
+USER nginx
 EXPOSE 8000 4430
 VOLUME /sites-enabled /conf.d /certs /var/log/nginx
-CMD ["run.sh"]
+ENTRYPOINT ["nginx"]
