@@ -7,8 +7,8 @@
 - Based on `debian/jessie`.
 - **Lightweight**, even though it's based on Debian, I did my best.
 - **Functional by design**, and even through updates.
-- **nginx 1.9.9** (mainline) is the webserver.
-- **PHP 7.0.2** (latest stable) is used.
+- **nginx 1.9.10** (mainline) is the webserver.
+- **PHP 7.0.3** (latest stable) is used.
 - **supervisor** is running the services.
 - **OPCache** is configured to provide best performances.
 - **system cron** is already configured (you can disable AJAX cron).
