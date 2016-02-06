@@ -23,23 +23,24 @@ RUN apk -U add \
     python-dev \
     py-pip \
     libffi-dev \
-    openssl-dev \
     libxslt-dev \
     libxml2-dev \
     openssl-dev \
     ca-certificates \
  && rm -f /var/cache/apk/*
 
-COPY run.sh /usr/local/bin/run.sh
-
-RUN chmod +x /usr/local/bin/run.sh \
- && adduser -D -h /usr/local/searx -s /bin/sh searx searx
+RUN adduser -D -h /usr/local/searx -s /bin/sh searx searx
 
 USER searx
+
 WORKDIR /usr/local/searx
 
 RUN wget -qO- https://github.com/asciimoo/searx/archive/master.tar.gz | tar xz --strip 1 \
  && sed -i "s/127.0.0.1/0.0.0.0/g" searx/settings.yml
+
+COPY run.sh /usr/local/bin/run.sh
+
+RUN chmod +x /usr/local/bin/run.sh
 
 EXPOSE 8888
 CMD ["run.sh"]
