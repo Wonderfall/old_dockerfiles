@@ -3,7 +3,8 @@ MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
 ENV HOSTNAME=svr04 DL_LIMIT=10485760 FACING_IP=9.9.9.9 JSON_LOG=False CUSTOM=False GID=1000 UID=1000
 
-RUN apk -U add \
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+ && apk -U add \
     build-base \
     libffi \
     libffi-dev \
@@ -13,6 +14,7 @@ RUN apk -U add \
     python-dev \
     py-pip \
     tar \
+    gosu@testing \
  && pip install --no-cache \
     pyasn1 \
     service_identity \

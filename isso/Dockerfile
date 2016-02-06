@@ -3,7 +3,8 @@ MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
 ENV GID=1000 UID=1000
 
-RUN apk -U add \
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+ && apk -U add \
     python \
     python-dev \
     libffi-dev \
@@ -12,6 +13,7 @@ RUN apk -U add \
     sqlite \
     ca-certificates \
     build-base \
+    gosu@testing \
  && pip install --no-cache cffi \
  && pip install --no-cache misaka==1.0.2 \
  && pip install --no-cache isso \

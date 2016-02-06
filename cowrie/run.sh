@@ -1,5 +1,5 @@
 #!/bin/sh
-addgroup -g ${GID} cowrie && adduser -h /usr/local/cowrie -s /bin/sh -D -G cowrie -u ${UID} cowrie
+addgroup -g $GID cowrie && adduser -h /usr/local/cowrie -s /bin/sh -D -G cowrie -u $UID cowrie
 
 cd /cowrie
 sed -i "s/hostname = svr04/hostname = $HOSTNAME/g" cowrie.cfg
@@ -40,4 +40,4 @@ fi
 
 mkdir /log/tty
 chown -R cowrie:cowrie /cowrie /dl /log
-su cowrie -c "twistd -n -l /log/cowrie.log cowrie"
+gosu cowrie:cowrie twistd -n -l /log/cowrie.log cowrie

@@ -4,7 +4,12 @@ MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 ENV VERSION=0.7.6 DOMAIN=my-ghost-blog.com SSL=False GID=1000 UID=1000
 VOLUME /ghost/content
 
-RUN apk -U add ca-certificates bash grep \
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+ && apk -U add \
+    ca-certificates \
+    bash \
+    grep \
+    gosu@testing \
  && wget -q https://ghost.org/zip/ghost-$VERSION.zip -P /tmp \
  && unzip -q /tmp/ghost-$VERSION.zip -d /ghost \
  && cd /ghost \

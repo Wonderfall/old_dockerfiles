@@ -22,4 +22,5 @@ else
 fi
 
 chown -R ghost:ghost /ghost
-su ghost -c "cd /ghost && npm start --production"
+cd /ghost
+gosu ghost:ghost npm start --production
