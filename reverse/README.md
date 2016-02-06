@@ -29,7 +29,7 @@ You may prefer `stable` for production.
 #### Notes about Next
 With `next`, it is required to :
 - chown your certs files with the right uid/pid (no other way)
-- change `listen` directive to 8000/44300 instead of 80/443
+- change `listen` directive to 8000/4430 instead of 80/443
 
 #### Volumes
 - **/sites-enabled** : should contain your vhosts files (.conf)
