@@ -5,31 +5,25 @@
 ![](https://i.goopics.net/lv.jpg) ![](https://i.goopics.net/lL.png) ![](https://upload.wikimedia.org/wikipedia/en/2/25/LibreSSL_logo.jpg)
 
 #### What is this?
-Basically, it's just nginx statically linked against LibreSSL. Both are compiled from source.
-
-#### Tags
-- Latest nginx **1.9.10** + LibreSSL **2.3.2** : `latest`
-- Stable nginx **1.8.1** + LibreSSL **2.2.6** : `stable`
-- Nginx 1.9.10 + LibreSSL 2.3.2 + ngx_brotli  : `brotli`
-- Nginx 1.9.10 + LibreSSL 2.3.2 + ngx_brotli +  no root : `next`
-
-You may prefer `stable` for production.
+It is nginx latest mainline statically linked against LibreSSL latest snapshot, with embedded Brotli support.
+Secured by default (no root processes, even the master one).
 
 #### Features
-- Based on Alpine Linux (3.3).
-- **Latest :** nginx mainline + LibreSSL snapshot
-- **Stable :** nginx stable + LibreSSL stable
-- **Latest :** HTTP/2 support.
-- **Brotli :** Brotli compression support.
-- **Next :** No root master process. Better security.
+- Based on Alpine Linux (3.3) : lightweight and secure distribution.
+- nginx mainline + LibreSSL snapshot
+- HTTP/2 support.
+- Brotli compression support.
+- No root master process. Better security.
 - AIO Threads support.
 - No unnessary modules.
 - Optimized nginx configuration.
 
-#### Notes about Next
-With `next`, it is required to :
+#### Notes
+It is required to :
 - chown your certs files with the right uid/pid (no other way)
 - change `listen` directive to 8000/4430 instead of 80/443
+
+By the way, it is recommended to **build this image** directly instead of pulling it from Docker Hub.
 
 #### Volumes
 - **/sites-enabled** : should contain your vhosts files (.conf)
@@ -49,6 +43,7 @@ https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 # docker-compose.yml
 nginx:
   image: wonderfall/reverse
+  #build: /path/wonderfall/reverse
   ports:
     - "80:80"
     - "443:443"
