@@ -31,8 +31,8 @@ By the way, it is recommended to **build this image** directly instead of pullin
 - **/var/log/nginx** : nginx logs (access and error)
 
 #### Environment variables
-- **GID** : nginx group id *(default : 1000)*
-- **UID** : nginx user id *(default : 1000)*
+- **GID** : nginx group id *(default : 991)*
+- **UID** : nginx user id *(default : 991)*
 
 #### Source (Dockerfile)
 https://github.com/Wonderfall/dockerfiles/tree/master/reverse
