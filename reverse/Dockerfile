@@ -1,7 +1,10 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ARG NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2 UID=991 GID=991
+ARG NGINX_VER=1.9.10 
+ARG LIBRESSL_VER=2.3.2 
+ARG UID=991 
+ARG GID=991
 
 RUN apk -U add \
     build-base \
