@@ -5,7 +5,7 @@
 
 #### What is this?
 It is nginx latest mainline statically linked against LibreSSL latest snapshot, with embedded Brotli support.
-Secured by default (no root processes, even the master one).
+Secured by default (no root processes, even the master one). I made this image for my own purpose, but I added some flexibility so you can use it easily.
 
 #### Features
 - Based on Alpine Linux (3.3) : lightweight and secure distribution.
