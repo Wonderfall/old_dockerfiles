@@ -34,25 +34,26 @@ RUN apk -U add \
  && mkdir /tmp/nginx && cd /tmp/nginx \
  && wget -qO- http://nginx.org/download/nginx-$NGINX_VER.tar.gz | tar zxf - \
  && cd nginx-$NGINX_VER \
- && ./configure --with-http_ssl_module \
-                --with-http_v2_module \
-                --with-http_gzip_static_module \
-                --with-http_stub_status_module \
-                --with-openssl=/tmp/libressl \
-                --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
-                --with-ld-opt="-lrt" \
-                --with-file-aio \
-                --with-threads \
-                --without-http_scgi_module \
-                --without-http_uwsgi_module \
-                --without-http_fastcgi_module \
-                --prefix=/etc/nginx \
-                --http-log-path=/var/log/nginx/access.log \
-                --error-log-path=/var/log/nginx/error.log \
-                --sbin-path=/usr/local/sbin/nginx \
-                --user=nginx \
-                --group=nginx \
-                --add-module=/tmp/ngx_brotli \
+ && ./configure \
+    --with-http_ssl_module \
+    --with-http_v2_module \
+    --with-http_gzip_static_module \
+    --with-http_stub_status_module \
+    --with-openssl=/tmp/libressl \
+    --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
+    --with-ld-opt="-lrt" \
+    --with-file-aio \
+    --with-threads \
+    --without-http_scgi_module \
+    --without-http_uwsgi_module \
+    --without-http_fastcgi_module \
+    --prefix=/etc/nginx \
+    --http-log-path=/var/log/nginx/access.log \
+    --error-log-path=/var/log/nginx/error.log \
+    --sbin-path=/usr/local/sbin/nginx \
+    --user=nginx \
+    --group=nginx \
+    --add-module=/tmp/ngx_brotli \
  && make -j$NB_CORES && make install \
  && apk del \
     build-base \
