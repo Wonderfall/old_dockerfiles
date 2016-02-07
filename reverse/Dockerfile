@@ -13,7 +13,6 @@ RUN apk -U add \
     ca-certificates \
     automake \
     autoconf \
-    grep \
     git \
     tar \
     libtool \
@@ -23,7 +22,7 @@ RUN apk -U add \
     zlib-dev \
     libgcc \
     libstdc++ \
- && NB_CORES=${BUILD_CORES-`grep -c "processor" /proc/cpuinfo`} \
+ && NB_CORES=${BUILD_CORES-`grep -c 'processor' /proc/cpuinfo`} \
  && cd /tmp && git clone https://github.com/bagder/libbrotli && cd libbrotli \
  && ./autogen.sh && ./configure && make -j$NB_CORES && make install \
  && mkdir /tmp/ngx_brotli && cd /tmp/ngx_brotli \
@@ -62,7 +61,6 @@ RUN apk -U add \
     automake \
     autoconf \
     git \
-    grep \
     tar \
     libtool \
     pcre-dev \
