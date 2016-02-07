@@ -5,6 +5,7 @@ ARG NGINX_VER=1.9.10
 ARG LIBRESSL_VER=2.3.2 
 ARG UID=991 
 ARG GID=991
+ARG BUILD_CORES
 
 RUN apk -U add \
     build-base \
@@ -22,7 +23,7 @@ RUN apk -U add \
     zlib-dev \
     libgcc \
     libstdc++ \
- && NB_CORES=`grep -c "processor" /proc/cpuinfo` \
+ && NB_CORES=${BUILD_CORES-`grep -c "processor" /proc/cpuinfo`} \
  && cd /tmp && git clone https://github.com/bagder/libbrotli && cd libbrotli \
  && ./autogen.sh && ./configure && make -j$NB_CORES && make install \
  && mkdir /tmp/ngx_brotli && cd /tmp/ngx_brotli \
