@@ -1,4 +1,7 @@
 ## wonderfall/compose
+
+![](https://github.com/docker/compose/raw/master/logo.png?raw=true)
+
 docker-compose running in a simple container.
 Add this to you bash profile :
 ```
@@ -10,3 +13,4 @@ alias docker-compose='docker run -v "$(pwd)":"$(pwd)" \
         -ti --rm wonderfall/compose:latest'
 ````
 Change `/home/docker/compose/dockerfiles` to the location path containing Dockefiles you eventually want to build.
+See official documentation for requirements and configuration.
