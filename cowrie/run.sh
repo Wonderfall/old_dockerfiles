@@ -1,6 +1,4 @@
 #!/bin/sh
-addgroup -g $GID cowrie && adduser -h /usr/local/cowrie -s /bin/sh -D -G cowrie -u $UID cowrie
-
 cd /cowrie
 sed -i "s/hostname = svr04/hostname = $HOSTNAME/g" cowrie.cfg
 sed -i "s/#download_limit_size = 10485760/download_limit_size = $DL_LIMIT/g" cowrie.cfg
@@ -35,9 +33,9 @@ if [ "$CUSTOM" == "True"]; then
 
     rm -rf honeyfs data txtcmds utils
     ln -s /data data #fix
-    chown -R cowrie:cowrie /honeyfs /data /txtcmds /utils
+    chown -R $UID:$GID /honeyfs /data /txtcmds /utils
 fi
 
 mkdir /log/tty
-chown -R cowrie:cowrie /cowrie /dl /log
-gosu cowrie:cowrie twistd -n -l /log/cowrie.log cowrie
+chown -R $UID:$GID /cowrie /dl /log
+gosu $UID:$GID twistd -n -l /log/cowrie.log cowrie

@@ -1,6 +1,4 @@
 #!/bin/bash
-addgroup -g ${GID} ghost && adduser -h /ghost -s /bin/sh -D -G ghost -u ${UID} ghost
-
 cd /ghost/content
 mkdir apps data images themes
 
@@ -21,6 +19,6 @@ else
   fi
 fi
 
-chown -R ghost:ghost /ghost
+chown -R $UID:$GID /ghost
 cd /ghost
-gosu ghost:ghost npm start --production
+gosu $UID:$GID npm start --production
