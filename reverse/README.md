@@ -30,7 +30,9 @@ By the way, it is recommended to **build this image** (using docker-compose 1.6 
 - **/certs** : SSL/TLS certificates
 - **/var/log/nginx** : nginx logs (access and error)
 
-#### Environment variables
+#### Build arguments
+- **NGINX_VER** : nginx's version, change it if needed but the default version is tested
+- **LIBRESSL_VER** : same as NGINX_VER
 - **GID** : nginx group id *(default : 991)*
 - **UID** : nginx user id *(default : 991)*
 
