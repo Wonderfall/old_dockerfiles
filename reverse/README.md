@@ -22,7 +22,7 @@ It is required to :
 - chown your certs files with the right uid/pid (no other way)
 - change `listen` directive to 8000/4430 instead of 80/443
 
-By the way, it is recommended to **build this image** directly instead of pulling it from Docker Hub.
+By the way, it is recommended to **build this image** (using docker-compose 1.6 and later for args compatibily) directly instead of pulling it from Docker Hub.
 
 #### Volumes
 - **/sites-enabled** : should contain your vhosts files (.conf)
@@ -41,8 +41,16 @@ https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 ```
 # docker-compose.yml
 nginx:
-  image: wonderfall/reverse
-  #build: /path/wonderfall/reverse
+  #image: wonderfall/reverse
+  build:
+    context: /path/to/dockerfile
+    dockerfile: Dockerfile-alternate
+    args:
+      NGINX_VER: 1.9.10
+      LIBRESSL_VER: 2.3.2
+      GID: 991
+      UID: 991
+      BUILD_CORES: 8
   ports:
     - "80:80"
     - "443:443"
