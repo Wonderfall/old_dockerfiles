@@ -40,18 +40,24 @@ By the way, it is recommended to **build this image** (using docker-compose 1.6 
 https://github.com/Wonderfall/dockerfiles/tree/master/reverse
 
 #### Examples : compose, vhost, TLS conf
+
+**NOTES** : 
+- compose file must use version 2. [See more here](https://docs.docker.com/compose/compose-file/#version-2:91de898b5f5cdb090642a917d3dedf68).
+- Docker 1.10+ and docker-compose 1.6+ are needed.
+- if you're using docker-compose inside a container, pay attention to `context`.
+
 ```
 # docker-compose.yml
 nginx:
   #image: wonderfall/reverse
   build:
-    context: /path/to/dockerfile
+    context: /path/to/reverse/dockerfile
     dockerfile: Dockerfile
     args:
       - NGINX_VER=1.9.10
       - LIBRESSL_VER=2.3.2
-      - GID=991
-      - UID=991
+      - GID=1000
+      - UID=1000
       - BUILD_CORES=8
   ports:
     - "80:8000"
