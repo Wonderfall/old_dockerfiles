@@ -52,15 +52,12 @@ nginx:
       - UID=991
       - BUILD_CORES=8
   ports:
-    - "80:80"
-    - "443:443"
+    - "80:8000"
+    - "443:4430"
   links:
     - container_1:container_1
     - container_2:container_2
     - container_n:container_n
-  environment:
-    - GID=1000
-    - UID=1000
   volumes:
     - /mnt/docker/nginx/sites:/sites-enabled
     - /mnt/docker/nginx/conf:/conf.d
@@ -71,13 +68,13 @@ nginx:
 ```
 # /mnt/docker/nginx/sites/service.conf
 server {
-  listen 80;
+  listen 8000;
   server_name service.domain.tld;
   return 301 https://$host$request_uri;
 }
 
 server {
-  listen 443 ssl http2;
+  listen 4430 ssl http2;
   server_name service.domain.tld;
   ssl_certificate /certs/live/service.domain.tld/fullchain.pem;
   ssl_certificate_key /certs/live/service.domain.tld/privkey.pem;
