@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2 GID=991 UID=991
+ARG NGINX_VER=1.9.10 LIBRESSL_VER=2.3.2 UID=991 GID=991
 
 RUN apk -U add \
     build-base \
@@ -74,4 +74,7 @@ RUN addgroup -g $GID nginx && adduser -H -s /bin/sh -D -G nginx -u $UID nginx \
 USER nginx
 EXPOSE 8000 4430
 VOLUME /sites-enabled /conf.d /certs /var/log/nginx
+LABEL description="Secure reverse proxy using nginx" \
+      libressl="LibreSSL v$LIBRESSL_VER" \
+      nginx="nginx v$NGINX_VER"
 ENTRYPOINT ["nginx"]
