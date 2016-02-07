@@ -46,11 +46,11 @@ nginx:
     context: /path/to/dockerfile
     dockerfile: Dockerfile
     args:
-      NGINX_VER: 1.9.10
-      LIBRESSL_VER: 2.3.2
-      GID: 991
-      UID: 991
-      BUILD_CORES: 8
+      - NGINX_VER=1.9.10
+      - LIBRESSL_VER=2.3.2
+      - GID=991
+      - UID=991
+      - BUILD_CORES=8
   ports:
     - "80:80"
     - "443:443"
