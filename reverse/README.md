@@ -44,7 +44,7 @@ nginx:
   #image: wonderfall/reverse
   build:
     context: /path/to/dockerfile
-    dockerfile: Dockerfile-alternate
+    dockerfile: Dockerfile
     args:
       NGINX_VER: 1.9.10
       LIBRESSL_VER: 2.3.2
