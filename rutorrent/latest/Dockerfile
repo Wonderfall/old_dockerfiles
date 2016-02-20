@@ -2,7 +2,7 @@ FROM alpine:3.3
 MAINTAINER xataz <https://github.com/xataz/dockerfiles>
 MAINTAINER Wonderfall <wonderfall@schrodinger.io>
 
-ARG MEDIAINFO_VER=0.7.81
+ARG MEDIAINFO_VER=0.7.82
 ARG RTORRENT_VER=0.9.6
 ARG LIBTORRENT_VER=0.13.6
 ARG BUILD_CORES
@@ -87,11 +87,7 @@ RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/ap
  && cd /var/www \
  && git clone https://github.com/Novik/ruTorrent.git rutorrent \
  && cd /var/www/rutorrent/plugins/ \
- && svn co http://rutorrent-logoff.googlecode.com/svn/trunk logoff \
- && cd /var/www/rutorrent/plugins/ \
  && git clone https://github.com/xombiemp/rutorrentMobile.git mobile \
- && cd /var/www/rutorrent/plugins/ \
- && svn checkout http://rutorrent-pausewebui.googlecode.com/svn/trunk pausewebui \
  && cd /var/www/rutorrent/plugins/theme/themes \
  && git clone https://github.com/exetico/FlatUI.git \
  && mv FlatUI/FlatUI_* . \
@@ -108,7 +104,7 @@ RUN chmod +x /usr/bin/startup
 
 VOLUME /data /var/www/torrent/share/users
 
-EXPOSE 80
+EXPOSE 80 45000/tcp 45000/udp
 
 LABEL description="BitTorrent client with WebUI front-end" \
       rtorrent="rTorrent BiTorrent client v$RTORRENT_VER" \
