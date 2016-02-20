@@ -2,6 +2,7 @@ FROM debian:jessie
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
 ARG VERSION=8.2.2
+ARG TINI_VER=0.9.0
 
 ENV USERID=1000 GROUPID=1000
 
@@ -45,6 +46,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends --no-install-su
  && gpg --import owncloud.asc \
  && gpg --verify owncloud-$VERSION.tar.bz2.asc \
  && tar xjf /tmp/owncloud-$VERSION.tar.bz2 --strip 1 -C /owncloud \
+ && wget -q https://github.com/krallin/tini/releases/download/v$TINI_VER/tini_$TINI_VER.deb \
+ && dpkg -i tini_$TINI_VER.deb \
  && apt-get purge -y wget bzip2 ca-certificates && apt-get autoremove -y --purge \
  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
@@ -58,6 +61,8 @@ RUN chmod +x /usr/local/bin/run.sh
 
 VOLUME /data /config /apps2
 EXPOSE 80
+
 LABEL description="A server software for creating file hosting services" \
       owncloud="ownCloud v$VERSION"
-CMD ["run.sh"]
+
+CMD ["tini","--","run.sh"]
