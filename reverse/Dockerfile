@@ -74,8 +74,6 @@ RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
     --http-log-path=/var/log/nginx/access.log \
     --error-log-path=/var/log/nginx/error.log \
     --sbin-path=/usr/local/sbin/nginx \
-    --user=nginx \
-    --group=nginx \
     --add-module=/tmp/ngx_brotli \
  && make -j $NB_CORES && make install \
  && apk del $BUILD_DEPS \
