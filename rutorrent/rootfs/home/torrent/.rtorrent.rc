@@ -1,6 +1,6 @@
 scgi_port = 0.0.0.0:5000
 encoding_list = UTF-8
-port_range = 45000-65000
+port_range = 49184-49184
 port_random = no
 check_hash = no
 directory = /data/torrents

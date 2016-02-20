@@ -5,6 +5,7 @@ MAINTAINER Wonderfall <wonderfall@schrodinger.io>
 ARG MEDIAINFO_VER=0.7.82
 ARG RTORRENT_VER=0.9.6
 ARG LIBTORRENT_VER=0.13.6
+ARG FILEBOT_VER=4.6.1
 ARG BUILD_CORES
 
 ENV UID=991 \
@@ -14,8 +15,9 @@ ENV UID=991 \
 
 RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
  && echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
- && export NB_CORES=${BUILD_CORES-`grep -c 'processor' /proc/cpuinfo`} \
- && export BUILD_DEPS=" \
+ && echo "@community http://nl.alpinelinux.org/alpine/v3.3/community/" >> /etc/apk/repositories \
+ && NB_CORES=${BUILD_CORES-`grep -c 'processor' /proc/cpuinfo`} \
+ && BUILD_DEPS=" \
     build-base \
     git \
     libtool \
@@ -42,7 +44,7 @@ RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/ap
     supervisor \
     geoip \
     tini@commuedge \
- && ln -s /usr/bin/php7 /usr/bin/php \
+    openjdk8-jre@community \
  && cd /tmp \
  && wget -q http://downloads.sourceforge.net/mktorrent/mktorrent-1.0.tar.gz \
  && tar xzvf mktorrent-1.0.tar.gz \
@@ -93,22 +95,25 @@ RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/ap
  && mv FlatUI/FlatUI_* . \
  && rm -rf FlatUI \
  && mv /var/www/rutorrent /var/www/torrent \
+ && mkdir /filebot \
+ && wget -q http://downloads.sourceforge.net/project/filebot/filebot/FileBot_${FILEBOT_VER}/FileBot_${FILEBOT_VER}-portable.zip -P /tmp \
+ && unzip -q /tmp/FileBot_${FILEBOT_VER}-portable.zip -d /filebot \
  && apk del ${BUILD_DEPS} \
- && rm -rf /var/cache/apk/* /tmp/* \
  && deluser svn \
- && delgroup svnusers
+ && delgroup svnusers \
+ && rm -rf /var/cache/apk/* /tmp/*
 
 COPY rootfs /
 
-RUN chmod +x /usr/bin/startup
+RUN chmod +x /usr/bin/*
 
 VOLUME /data /var/www/torrent/share/users
-
-EXPOSE 80 45000/tcp 45000/udp
+EXPOSE 80 49184 49184/udp
 
 LABEL description="BitTorrent client with WebUI front-end" \
       rtorrent="rTorrent BiTorrent client v$RTORRENT_VER" \
       libtorrent="libtorrent v$LIBTORRENT_VER" \
-      mediainfo="mediainfo v$MEDIAINFO_VER"
+      mediainfo="mediainfo v$MEDIAINFO_VER" \
+      filebot="Filebot v$FILEBOT_VER"
 
 CMD ["tini","--","startup"]

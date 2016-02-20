@@ -19,7 +19,7 @@
 	$scgi_host = "127.0.0.1";
 	$XMLRPCMountPoint = "/RPC";
 	$pathToExternals = array(
-		"php" 	=> '',
+		"php" 	=> '/usr/bin/php7',
 		"curl"	=> '/usr/bin/curl',
 		"gzip"	=> '/usr/bin/gzip',
 		"id"	=> '/usr/bin/id',
