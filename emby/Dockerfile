@@ -1,11 +1,12 @@
 FROM wonderfall/mono
 MAINTAINER xataz <https://github.com/xataz>
+MAINTAINER Wonderfall <wonderfall@schrodinger.io>
 
 ENV GID=991 UID=991
 
 RUN echo "@testing http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
  && echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
- && apk add -U \
+ && apk -U add \
     libmediainfo@testing \
     imagemagick \
     sqlite \
