@@ -15,7 +15,7 @@ RUN echo "@testing http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     supervisor \
     tini@commuedge \
  && rm -f /var/cache/apk/* \
- && mkdir /embyServer /embyData \
+ && mkdir /embyServer /embyData
 
 ADD https://github.com/MediaBrowser/Emby.Releases/raw/master/Server/Emby.Mono.zip /tmp
 
