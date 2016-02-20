@@ -15,7 +15,7 @@ min_peers_seed = 1
 max_peers_seed = 50
 max_uploads = 15
 
-execute = {sh,-c,/usr/bin/php /var/www/torrent/php/initplugins.php torrent &}
+execute = {sh,-c,/usr/bin/php7 /var/www/torrent/php/initplugins.php torrent &}
 schedule = watch_directory,1,1,"load_start=/data/.watch/*.torrent"
 schedule = untied_directory,5,5,"stop_untied=/data/.watch/*.torrent"
 schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M
