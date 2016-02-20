@@ -23,7 +23,7 @@ if [ -z "$PASSWORD" ]; then
     echo "Password was not defined, generating a random one..."
 fi
 
-echo -n $USER:$PASSWORD >> $NAME.htpasswd
+echo -n $USER:`openssl passwd -apr1 $PASSWORD` >> $NAME.htpasswd
 chown $UID:$GID $NAME.htpasswd
 chmod 640 $NAME.htpasswd
 
