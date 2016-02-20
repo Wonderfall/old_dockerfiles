@@ -1,7 +1,7 @@
 FROM wonderfall/node:5.6
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ARG VERSION=0.7.6
+ARG VERSION=0.7.8
 
 ENV GHOST_NODE_VERSION_CHECK=false \
     GID=991 \
