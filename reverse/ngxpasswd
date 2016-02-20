@@ -9,7 +9,7 @@ if [ -z "$NAME" ]; then
     echo "Service name must be defined" 1>&2
     exit 1
 elif [ -f $NAME.htpasswd ]; then
-    echo "$NAME.htpasswd exists, aborting"
+    echo "$NAME.htpasswd exists, aborting" 1>&2
     exit 1
 fi
 
