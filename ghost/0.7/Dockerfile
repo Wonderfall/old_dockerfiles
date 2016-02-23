@@ -1,4 +1,4 @@
-FROM wonderfall/node:5.6
+FROM wonderfall/node:5.7
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
 ARG VERSION=0.7.8
