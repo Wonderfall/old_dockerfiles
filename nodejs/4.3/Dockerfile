@@ -15,9 +15,8 @@ RUN apk -U add \
     libgcc \
     libstdc++ \
     binutils-gold \
-    grep \
     ca-certificates \
- && NB_CORES=`grep -c "processor" /proc/cpuinfo` \
+ && NB_CORES=`getconf _NPROCESSORS_CONF` \
  && cd /tmp \
  && wget -qO- https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER.tar.gz | tar zxf - \
  && cd node-v$NODE_VER \
