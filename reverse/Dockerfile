@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ARG NGINX_VER=1.9.11
+ARG NGINX_VER=1.9.12
 ARG LIBRESSL_VER=2.3.2
 ARG SIGNATURE=nginx
 ARG BUILD_CORES
@@ -49,6 +49,7 @@ RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
  && sed -i -e "s/\"Server: nginx\" CRLF/\"Server: $SIGNATURE\" CRLF/g" \
     -e "s/\"Server: \" NGINX_VER CRLF/\"Server: $SIGNATURE\" NGINX_VER CRLF/g" \
     src/http/ngx_http_header_filter_module.c \
+ && sed -i -e "s/install_sw/install/g" auto/lib/openssl/make \
  && ./configure \
     --with-http_ssl_module \
     --with-http_v2_module \
