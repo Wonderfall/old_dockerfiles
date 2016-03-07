@@ -1,9 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ARG VER=2.16.0
-
-ENV GID=1000 UID=1000
+ENV VER=2.16.0 GID=991 UID=991
 
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
  && echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
@@ -43,6 +41,8 @@ RUN chmod +x /usr/local/bin/run.sh
 
 VOLUME /config
 EXPOSE 80
+
 LABEL description "Open web analytics platform" \
       piwik "Piwik v$VER"
-CMD ["/usr/bin/tini","--","/usr/local/bin/run.sh"]
+      
+CMD ["tini","--","run.sh"]
