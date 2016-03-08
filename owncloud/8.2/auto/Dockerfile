@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV VERSION=8.2.2 TINI_VER=0.9.0 USERID=1000 GROUPID=1000
+ENV VERSION=9.0.0 TINI_VER=0.9.0 USERID=1000 GROUPID=1000
 
 ADD https://www.dotdeb.org/dotdeb.gpg /tmp/dotdeb.gpg
 ADD http://nginx.org/keys/nginx_signing.key /tmp/nginx.key
