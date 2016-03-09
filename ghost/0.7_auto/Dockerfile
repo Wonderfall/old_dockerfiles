@@ -1,4 +1,4 @@
-FROM wonderfall/node:5.7
+FROM wonderfall/node:stable
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
 ENV VERSION=0.7.8 \
