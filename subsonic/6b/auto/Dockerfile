@@ -1,9 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV VER=6.0.beta1
-
-ENV GID=1000 UID=1000
+ENV VER=6.0.beta2 GID=1000 UID=1000
 
 RUN echo "@community http://dl-4.alpinelinux.org/alpine/v3.3/community/" >> /etc/apk/repositories \
  && echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
