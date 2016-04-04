@@ -35,6 +35,7 @@ By the way, it is recommended to **build this image** (using docker-compose 1.6 
 #### Build arguments
 - **NGINX_VER** : nginx's version, change it if needed but the default version is tested
 - **LIBRESSL_VER** : same as NGINX_VER
+- **SIGNATURE** : server http header
 - **GID** : nginx group id *(default : 991)*
 - **UID** : nginx user id *(default : 991)*
 
