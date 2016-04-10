@@ -18,12 +18,16 @@ RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/ap
     php-pdo_sqlite \
     php-sqlite3 \
     supervisor \
+    gnupg \
     tini@commuedge \
- && rm -f /var/cache/apk/*
-
-RUN wget http://repository.rainloop.net/v2/webmail/rainloop-community-latest.zip -P /tmp \
+ && wget -q http://repository.rainloop.net/v2/webmail/rainloop-community-latest.zip -P /tmp \
+ && wget -q http://repository.rainloop.net/v2/webmail/rainloop-community-latest.zip.asc -P /tmp \
+ && wget -q http://repository.rainloop.net/RainLoop.asc -P /tmp \
+ && gpg --import /tmp/RainLoop.asc \
+ && gpg --verify /tmp/rainloop-community-latest.zip.asc \
  && mkdir /rainloop && unzip -q /tmp/rainloop-community-latest.zip -d /rainloop \
- && rm -rf /tmp/*
+ && apk del gnupg \
+ && rm -rf /tmp/* /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY php-fpm.conf /etc/php/php-fpm.conf
