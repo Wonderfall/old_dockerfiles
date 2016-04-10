@@ -1,12 +1,14 @@
-FROM alpine:edge 
+FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@schrodinger.io>
 
 ENV GID=991 UID=991
 
 RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
  && echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+ && echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
  && apk -U add \
     nginx \
+    libwebp@edge \
     php7-fpm@testing \
     php7-gd@testing \
     php7-mcrypt@testing \
