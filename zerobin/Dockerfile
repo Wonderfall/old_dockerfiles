@@ -1,4 +1,4 @@
-FROM alpine:3.3 
+FROM alpine:edge 
 MAINTAINER Wonderfall <wonderfall@schrodinger.io>
 
 ENV GID=991 UID=991
