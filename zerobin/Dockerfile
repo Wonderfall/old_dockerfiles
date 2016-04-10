@@ -1,8 +1,6 @@
 FROM alpine:3.3 
 MAINTAINER Wonderfall <wonderfall@schrodinger.io>
 
-ARG VERSION=0.22
-
 ENV GID=991 UID=991
 
 RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
@@ -19,7 +17,7 @@ RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/ap
     ca-certificates \
     tar \
  && mkdir zerobin && cd zerobin \
- && wget -qO- https://github.com/elrido/ZeroBin/archive/$VERSION.tar.gz | tar xz --strip 1 \
+ && wget -qO- https://github.com/elrido/ZeroBin/archive/master.tar.gz | tar xz --strip 1 \
  && mv cfg/conf.ini.sample cfg/conf.ini \
  && apk del tar ca-certificates \
  && rm -f /var/cache/apk/*
@@ -33,6 +31,5 @@ RUN chmod +x /usr/local/bin/run.sh
 
 VOLUME /zerobin/data
 EXPOSE 80
-LABEL description "A minimalist, opensource online pastebin where the server has zero knowledge of pasted data" \
-      zerobin "elrido's ZeroBin v$VERSION"
+
 CMD ["tini","--","run.sh"]
