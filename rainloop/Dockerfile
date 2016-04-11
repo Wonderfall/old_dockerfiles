@@ -1,7 +1,7 @@
 FROM alpine:3.3
 MAINTAINER Wonderfall <wonderfall@mondedie.fr>
 
-ENV GID=1000 UID=1000
+ENV GID=991 UID=991
 
 RUN echo "@commuedge http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
  && apk -U add \
@@ -39,4 +39,4 @@ RUN chmod +x /usr/local/bin/run.sh
 VOLUME /rainloop/data
 EXPOSE 80
 LABEL description "Fast, simple and modern webmail client"
-CMD ["/usr/bin/tini","--","/usr/local/bin/run.sh"]
+CMD ["tini","--","run.sh"]
